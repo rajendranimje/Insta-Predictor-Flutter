@@ -83,6 +83,7 @@ class _DashboardViewState extends State<DashboardView> {
     setState(() {
       url =
           "https://astrouser.com/astroapp/mobileapp/singlepageapp.aspx?lat=${AppConstants.latitude}&Lon=-${AppConstants.longitude}&tz=5.5&Mydate=$currentDate:$CurrentTime&mychartMethod=0&myayanmsha=0&isBhavaMadhya=1&lang=En&Nodetype=0&Placename=${AppConstants.address}";
+          print("url:::::::::::::$url");
     });
     loadUrl(url ?? "");
   }
