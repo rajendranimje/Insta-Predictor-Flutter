@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:instantpredictor/res/constants/api_constants.dart';
+import 'package:InstaPredictor/res/constants/api_constants.dart';
 
 class BaseApiClient {
   late final Dio _client = Dio(
@@ -10,33 +10,31 @@ class BaseApiClient {
       CustomInterceptor(),
       LoggingInterceptor(),
       InterceptorsWrapper(
-        onError: (DioError error, handler) {
-          if (error.type == DioErrorType.connectionTimeout ||
-              error.type == DioErrorType.receiveTimeout ||
-              error.type == DioErrorType.badResponse) {
-              
+        onError: (DioException  error, handler) {
+          if (error.type == DioExceptionType .connectionTimeout ||
+              error.type == DioExceptionType .receiveTimeout ||
+              error.type == DioExceptionType .badResponse) {
             // Show an alert to the user that the server is not responding
             print('Server is not responding');
           }
           // Pass the error to the next interceptor
-        handler .next(error);
+          handler.next(error);
         },
       ),
     ]);
 
-  Future<dynamic> getCall(
-      String endpoint,  Map<String, dynamic>? params) async {
+  Future<dynamic> getCall(String endpoint, Map<String, dynamic>? params) async {
     try {
       var response = await _client.get(endpoint,
-          options: Options(headers: {"content-type":"application/json;charset=UTF-8"}), queryParameters: params);
+          options: Options(
+              headers: {"content-type": "application/json;charset=UTF-8"}),
+          queryParameters: params);
       print("Printing Response:::::::${response.data}");
       return response.data;
     } catch (e) {
       print(e);
     }
   }
-
-
 }
 
 // CustomInterceptor adds a custom header to every request

@@ -1,6 +1,5 @@
 class StringConstants {
-  static const String instantPredictor = "Insta Predictor";
-  static const String instantPredictorPro = "Instant Predictor Pro";
+  static const String InstaPredictor = "Insta Predictor";
   static const String instaPredictorPro = "Insta Predictor Pro";
   static const String name = "Name";
   static const String mobileNumber = "Mobile Number";
@@ -44,5 +43,5 @@ class StringConstants {
   static String house_index = "0";
   static String ayamsha_index = "0";
   static String node_index = "0";
-  static String address="";
+  static String address = "";
 }

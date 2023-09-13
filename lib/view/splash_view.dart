@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:instantpredictor/data/local_store_helper.dart';
-import 'package:instantpredictor/res/constants/image_constants.dart';
-import 'package:instantpredictor/res/constants/routes/approutes.dart';
+import 'package:InstaPredictor/data/local_store_helper.dart';
+import 'package:InstaPredictor/res/constants/image_constants.dart';
+import 'package:InstaPredictor/res/constants/routes/approutes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -36,7 +36,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 Text(
                   "Please wait....",
-                  style: TextStyle(color: Colors.white, fontSize: 18,fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
                 )
               ],
             ),

@@ -1,6 +1,6 @@
-import 'package:instantpredictor/data/api_client.dart';
-import 'package:instantpredictor/model/registration_response.dart';
-import 'package:instantpredictor/res/constants/api_constants.dart';
+import 'package:InstaPredictor/data/api_client.dart';
+import 'package:InstaPredictor/model/registration_response.dart';
+import 'package:InstaPredictor/res/constants/api_constants.dart';
 
 class RegistrationRepository {
   final _baseClient = BaseApiClient();

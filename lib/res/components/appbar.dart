@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instantpredictor/res/constants/image_constants.dart';
-import 'package:instantpredictor/view/sidebar.dart';
+import 'package:InstaPredictor/res/constants/image_constants.dart';
+import 'package:InstaPredictor/view/sidebar.dart';
 
 class appBarReusable extends StatefulWidget {
   appBarReusable(

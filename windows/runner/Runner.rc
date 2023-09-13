@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "example.android.astrosinglepager" "\0"
-            VALUE "FileDescription", "instantpredictor" "\0"
+            VALUE "FileDescription", "InstaPredictor" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "instantpredictor" "\0"
+            VALUE "InternalName", "InstaPredictor" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 example.android.astrosinglepager. All rights reserved." "\0"
-            VALUE "OriginalFilename", "instantpredictor.exe" "\0"
-            VALUE "ProductName", "instantpredictor" "\0"
+            VALUE "OriginalFilename", "InstaPredictor.exe" "\0"
+            VALUE "ProductName", "InstaPredictor" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

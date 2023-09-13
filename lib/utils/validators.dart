@@ -1,10 +1,11 @@
-import 'package:instantpredictor/utils/regex.dart';
+import 'package:InstaPredictor/utils/regex.dart';
 
 class Validators {
   bool validateEmail(email) {
     return RegExp(AppRegex.emailPattern).hasMatch(email);
   }
-  bool validateNumber(number){
+
+  bool validateNumber(number) {
     return RegExp(AppRegex.mobileNumberPattern).hasMatch(number);
   }
 }

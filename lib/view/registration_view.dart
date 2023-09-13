@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:instantpredictor/res/components/register_button.dart';
-import 'package:instantpredictor/res/components/text_field_reusable.dart';
-import 'package:instantpredictor/res/constants/image_constants.dart';
-import 'package:instantpredictor/res/constants/string_constants.dart';
-import 'package:instantpredictor/res/constants/styles/text_style_constants.dart';
-import 'package:instantpredictor/viewmodel/registration_viewmodel.dart';
+import 'package:InstaPredictor/res/components/register_button.dart';
+import 'package:InstaPredictor/res/components/text_field_reusable.dart';
+import 'package:InstaPredictor/res/constants/image_constants.dart';
+import 'package:InstaPredictor/res/constants/string_constants.dart';
+import 'package:InstaPredictor/res/constants/styles/text_style_constants.dart';
+import 'package:InstaPredictor/viewmodel/registration_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 class RegistrationView extends StatefulWidget {
@@ -27,7 +27,7 @@ class _RegistrationViewState extends State<RegistrationView> {
   final TextEditingController _emailIdController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-     final registrationProvider = Provider.of<RegistrationViewModel>(context);
+    final registrationProvider = Provider.of<RegistrationViewModel>(context);
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -52,7 +52,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                   height: MediaQuery.of(context).size.height * 0.15,
                 ),
                 const Text(
-                  StringConstants.instantPredictor,
+                  StringConstants.InstaPredictor,
                   style: TextStyleConstants.headingTextStyle,
                 ),
                 Form(

@@ -1,6 +1,6 @@
 {
-    "name": "instantpredictor",
-    "short_name": "instantpredictor",
+    "name": "InstaPredictor",
+    "short_name": "InstaPredictor",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#hexcode",

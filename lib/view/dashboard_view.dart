@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart' as inappweb;
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:instantpredictor/res/components/appbar.dart';
-import 'package:instantpredictor/res/constants/app_constants.dart';
-import 'package:instantpredictor/res/constants/string_constants.dart';
+import 'package:InstaPredictor/res/components/appbar.dart';
+import 'package:InstaPredictor/res/constants/app_constants.dart';
+import 'package:InstaPredictor/res/constants/string_constants.dart';
 import 'package:intl/intl.dart';
 
 class DashboardView extends StatefulWidget {
@@ -43,7 +43,7 @@ class _DashboardViewState extends State<DashboardView> {
     }
     return appBarReusable(
       onRefresh: refreshWebview,
-      heading: StringConstants.instantPredictor,
+      heading: StringConstants.InstaPredictor,
       isRefreshVisible: true,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
@@ -58,8 +58,7 @@ class _DashboardViewState extends State<DashboardView> {
               ),
             ),
             onWebViewCreated: (inappweb.InAppWebViewController controller) {
-                changedUrlController = controller;
-              
+              changedUrlController = controller;
             }),
       ),
     );
@@ -75,7 +74,6 @@ class _DashboardViewState extends State<DashboardView> {
     print("url: $url");
     changedUrlController?.loadUrl(
         urlRequest: inappweb.URLRequest(url: Uri.parse(url)));
-        
   }
 
   refreshWebview() {
@@ -83,7 +81,7 @@ class _DashboardViewState extends State<DashboardView> {
     setState(() {
       url =
           "https://astrouser.com/astroapp/mobileapp/singlepageapp.aspx?lat=${AppConstants.latitude}&Lon=-${AppConstants.longitude}&tz=5.5&Mydate=$currentDate:$CurrentTime&mychartMethod=0&myayanmsha=0&isBhavaMadhya=1&lang=En&Nodetype=0&Placename=${AppConstants.address}";
-          print("url:::::::::::::$url");
+      print("url:::::::::::::$url");
     });
     loadUrl(url ?? "");
   }

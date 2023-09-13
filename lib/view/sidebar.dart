@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instantpredictor/res/constants/image_constants.dart';
-import 'package:instantpredictor/res/constants/routes/approutes.dart';
-import 'package:instantpredictor/res/constants/string_constants.dart';
-import 'package:instantpredictor/res/constants/styles/text_style_constants.dart';
+import 'package:InstaPredictor/res/constants/image_constants.dart';
+import 'package:InstaPredictor/res/constants/routes/approutes.dart';
+import 'package:InstaPredictor/res/constants/string_constants.dart';
+import 'package:InstaPredictor/res/constants/styles/text_style_constants.dart';
 
 class SideBarView extends StatefulWidget {
   const SideBarView({super.key});
@@ -34,7 +34,7 @@ class _SideBarViewState extends State<SideBarView> {
                   height: 10,
                 ),
                 const Text(
-                  StringConstants.instantPredictor,
+                  StringConstants.InstaPredictor,
                   style: TextStyleConstants.headingTextStyle,
                 ),
               ],
@@ -80,7 +80,7 @@ class _SideBarViewState extends State<SideBarView> {
               style: TextStyleConstants.sidebarTextSTyle,
             ),
             onTap: () {
-              Navigator.pushNamed(context, Approutes.instantPredictorPro);
+              Navigator.pushNamed(context, Approutes.InstaPredictorPro);
             },
           ),
           ListTile(

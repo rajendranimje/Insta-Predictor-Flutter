@@ -1,4 +1,4 @@
-# instantpredictor
+# InstaPredictor
 
 A new Flutter project.
 

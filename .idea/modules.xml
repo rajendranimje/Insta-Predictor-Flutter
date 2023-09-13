@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/instantpredictor.iml" filepath="$PROJECT_DIR$/instantpredictor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/instantpredictor_android.iml" filepath="$PROJECT_DIR$/android/instantpredictor_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstaPredictor.iml" filepath="$PROJECT_DIR$/InstaPredictor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/InstaPredictor_android.iml" filepath="$PROJECT_DIR$/android/InstaPredictor_android.iml" />
     </modules>
   </component>
 </project>

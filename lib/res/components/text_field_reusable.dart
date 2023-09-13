@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextFieldReusable extends StatelessWidget {
-  String? hinttext;
-  TextEditingController? controller;
-  String? isEmpty;
-  String? isValid;
+  final String? hinttext;
+   TextEditingController? controller;
+  final String? isEmpty;
+  final String? isValid;
   TextInputType? textType;
   int? maxlength;
   List<TextInputFormatter>? inputFormatter;
@@ -34,6 +34,8 @@ class TextFieldReusable extends StatelessWidget {
           return isEmpty;
         } else if (isValid != null && value.length < 10) {
           return isValid;
+        }else{
+          return "";
         }
       },
       decoration: InputDecoration(

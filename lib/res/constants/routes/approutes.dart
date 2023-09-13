@@ -8,5 +8,5 @@ class Approutes {
   static const String about = "/about";
   static const String pearl = "/pearl";
   static const String splash = "/splash";
-  static const String instantPredictorPro = "/instantPredictorPro";
+  static const String InstaPredictorPro = "/InstaPredictorPro";
 }

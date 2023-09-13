@@ -8,7 +8,7 @@ class RegisterButton extends StatelessWidget {
     required this.onButtonPressed,
     this.width, this.height, this.buttoncolor, this.buttontextcolor,  this.buttonradius,
   });
-  String buttonText;
+  final String buttonText;
   final void Function()? onButtonPressed;
  final double? width;
 final  double? height;

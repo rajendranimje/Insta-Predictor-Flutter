@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:instantpredictor/data/local_store_helper.dart';
-import 'package:instantpredictor/repository/registration_repository.dart';
-import 'package:instantpredictor/res/components/Loader.dart';
-import 'package:instantpredictor/res/components/alert_dialog.dart';
-import 'package:instantpredictor/res/constants/api_error_codes.dart';
-import 'package:instantpredictor/res/constants/routes/approutes.dart';
-import 'package:instantpredictor/res/constants/string_constants.dart';
-import 'package:instantpredictor/utils/validators.dart';
+import 'package:InstaPredictor/data/local_store_helper.dart';
+import 'package:InstaPredictor/repository/registration_repository.dart';
+import 'package:InstaPredictor/res/components/Loader.dart';
+import 'package:InstaPredictor/res/components/alert_dialog.dart';
+import 'package:InstaPredictor/res/constants/api_error_codes.dart';
+import 'package:InstaPredictor/res/constants/routes/approutes.dart';
+import 'package:InstaPredictor/res/constants/string_constants.dart';
+import 'package:InstaPredictor/utils/validators.dart';
 
 class RegistrationViewModel with ChangeNotifier {
   final _registrationRepository = RegistrationRepository();
@@ -16,7 +16,7 @@ class RegistrationViewModel with ChangeNotifier {
       String mobileNo, String type, BuildContext context) async {
     if (formkey.currentState!.validate()) {
       var customLoader = Loader();
-       showDialog(context: context, builder: (context) => customLoader);
+      showDialog(context: context, builder: (context) => customLoader);
       final result = await _registrationRepository.getRegistrationDetails(
           name, emailId, mobileNo, type);
       if (result.message == ApiErrorCodes.success ||

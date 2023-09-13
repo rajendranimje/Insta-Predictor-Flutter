@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:instantpredictor/res/constants/string_constants.dart';
+import 'package:InstaPredictor/res/constants/string_constants.dart';
 
 class Loader extends StatefulWidget {
   const Loader({super.key});
@@ -16,7 +16,7 @@ class _LoaderState extends State<Loader> {
     return Platform.isAndroid
         ? AlertDialog(
             title: const Text(
-              StringConstants.instantPredictor,
+              StringConstants.InstaPredictor,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
@@ -39,12 +39,13 @@ class _LoaderState extends State<Loader> {
           )
         : CupertinoAlertDialog(
             title: const Text(
-              StringConstants.instantPredictor,
+              StringConstants.InstaPredictor,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
-            ),content: Row(
+            ),
+            content: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: const [
                 CircularProgressIndicator(

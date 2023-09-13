@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:instantpredictor/res/constants/routes/app_pages.dart';
-import 'package:instantpredictor/res/constants/routes/approutes.dart';
-import 'package:instantpredictor/viewmodel/registration_viewmodel.dart';
+import 'package:InstaPredictor/res/constants/routes/app_pages.dart';
+import 'package:InstaPredictor/res/constants/routes/approutes.dart';
+import 'package:InstaPredictor/viewmodel/registration_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => RegistrationViewModel(),
         ),
-        
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
