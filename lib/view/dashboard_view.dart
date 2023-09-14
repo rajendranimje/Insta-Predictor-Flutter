@@ -85,14 +85,7 @@ class _DashboardViewState extends State<DashboardView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (await InternetCheck()) {
-        getRequiredData();
-      } else {
-        AlertsNetwork.showAlertDialog(context, StringConstants.internetcheck,
-            onpressed: () {
-          Navigator.pop(context);
-        }, buttontext: StringConstants.ok, align: TextAlign.center);
-      }
+      getRequiredData();
     });
   }
 

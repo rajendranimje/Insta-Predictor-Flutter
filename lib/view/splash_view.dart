@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(
         const Duration(
-          seconds: 4,
+          seconds: 2,
         ), () async {
       var isChecked = await LocalStoreHelper().readTheData("isLoggedIn");
       if (isChecked == true) {
