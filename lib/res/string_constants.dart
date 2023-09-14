@@ -1,6 +1,5 @@
 class StringConstants {
   static const String InstaPredictor = "Insta Predictor";
-
   static const String name = "Name";
   static const String mobileNumber = "Mobile Number";
   static const String emailId = "Email Id";
@@ -19,4 +18,5 @@ class StringConstants {
   static const String loading = "Loading...";
   static const String exitmessage = "Do you want to exit from the App?";
   static const String ok = "OK";
+  static const String internetCheck = "Please check your internet connection";
 }

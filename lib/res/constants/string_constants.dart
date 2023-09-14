@@ -33,7 +33,8 @@ class StringConstants {
   static const String descriptionEmpty = "Please enter description";
   static const String noData = "No Data";
   static const String searchlocation = 'Search Location';
-  static const String internetcheck = "Could not connect to Internet";
+  static const String internetcheck = "Please check your Internet Connection";
+   static const String exitApp = "Do you want exit from app?";
   static const String loading = "Loading...";
   static const String exitmessage = "Do you want to exit from the App?";
   static const String ok = "OK";

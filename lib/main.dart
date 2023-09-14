@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:InstaPredictor/res/constants/routes/app_pages.dart';
 import 'package:InstaPredictor/res/constants/routes/approutes.dart';
 import 'package:InstaPredictor/viewmodel/registration_viewmodel.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) => runApp(MyApp()));
   runApp(const MyApp());
 }
 

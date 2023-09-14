@@ -1,4 +1,8 @@
+import 'package:InstaPredictor/res/components/exitAlert.dart';
+import 'package:InstaPredictor/res/components/internetCheck.dart';
+import 'package:InstaPredictor/res/components/networkAlert.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart' as inappweb;
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -41,25 +45,38 @@ class _DashboardViewState extends State<DashboardView> {
         ),
       );
     }
-    return appBarReusable(
-      onRefresh: refreshWebview,
-      heading: StringConstants.InstaPredictor,
-      isRefreshVisible: true,
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: inappweb.InAppWebView(
-            initialUrlRequest: inappweb.URLRequest(
-              url: Uri.parse(url ?? ""),
-            ),
-            initialOptions: inappweb.InAppWebViewGroupOptions(
-              android: inappweb.AndroidInAppWebViewOptions(
-                useHybridComposition: true,
-                // it makes 2 times bigger
+    return WillPopScope(
+      onWillPop: () {
+        ExitAlert.showAlertDialog(context, StringConstants.exitApp,
+            onCancel: () {
+              Navigator.pop(context);
+            },
+            align: TextAlign.center,
+            onOk: () {
+              SystemNavigator.pop();
+            });
+        return Future.value(false);
+      },
+      child: appBarReusable(
+        onRefresh: refreshWebview,
+        heading: StringConstants.InstaPredictor,
+        isRefreshVisible: true,
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: inappweb.InAppWebView(
+              initialUrlRequest: inappweb.URLRequest(
+                url: Uri.parse(url ?? ""),
               ),
-            ),
-            onWebViewCreated: (inappweb.InAppWebViewController controller) {
-              changedUrlController = controller;
-            }),
+              initialOptions: inappweb.InAppWebViewGroupOptions(
+                android: inappweb.AndroidInAppWebViewOptions(
+                  useHybridComposition: true,
+                  // it makes 2 times bigger
+                ),
+              ),
+              onWebViewCreated: (inappweb.InAppWebViewController controller) {
+                changedUrlController = controller;
+              }),
+        ),
       ),
     );
   }
@@ -67,7 +84,16 @@ class _DashboardViewState extends State<DashboardView> {
   @override
   void initState() {
     super.initState();
-    getRequiredData();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (await InternetCheck()) {
+        getRequiredData();
+      } else {
+        AlertsNetwork.showAlertDialog(context, StringConstants.internetcheck,
+            onpressed: () {
+          Navigator.pop(context);
+        }, buttontext: StringConstants.ok, align: TextAlign.center);
+      }
+    });
   }
 
   loadUrl(String url) {
@@ -76,14 +102,21 @@ class _DashboardViewState extends State<DashboardView> {
         urlRequest: inappweb.URLRequest(url: Uri.parse(url)));
   }
 
-  refreshWebview() {
-    String CurrentTime = DateFormat('HH:mm:ss').format(DateTime.now());
-    setState(() {
-      url =
-          "https://astrouser.com/astroapp/mobileapp/singlepageapp.aspx?lat=${AppConstants.latitude}&Lon=-${AppConstants.longitude}&tz=5.5&Mydate=$currentDate:$CurrentTime&mychartMethod=0&myayanmsha=0&isBhavaMadhya=1&lang=En&Nodetype=0&Placename=${AppConstants.address}";
-      print("url:::::::::::::$url");
-    });
-    loadUrl(url ?? "");
+  refreshWebview() async {
+    if (await InternetCheck()) {
+      String CurrentTime = DateFormat('HH:mm:ss').format(DateTime.now());
+      setState(() {
+        url =
+            "https://astrouser.com/astroapp/mobileapp/singlepageapp.aspx?lat=${AppConstants.latitude}&Lon=-${AppConstants.longitude}&tz=5.5&Mydate=$currentDate:$CurrentTime&mychartMethod=0&myayanmsha=0&isBhavaMadhya=1&lang=En&Nodetype=0&Placename=${AppConstants.address}";
+        print("url:::::::::::::$url");
+      });
+      loadUrl(url ?? "");
+    } else {
+      AlertsNetwork.showAlertDialog(context, StringConstants.internetcheck,
+          onpressed: () {
+        Navigator.pop(context);
+      }, buttontext: StringConstants.ok, align: TextAlign.center);
+    }
   }
 
   getRequiredData() async {

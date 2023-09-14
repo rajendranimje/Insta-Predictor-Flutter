@@ -1,3 +1,5 @@
+import 'package:InstaPredictor/res/components/internetCheck.dart';
+import 'package:InstaPredictor/res/components/networkAlert.dart';
 import 'package:flutter/material.dart';
 import 'package:InstaPredictor/data/local_store_helper.dart';
 import 'package:InstaPredictor/repository/registration_repository.dart';
@@ -15,35 +17,41 @@ class RegistrationViewModel with ChangeNotifier {
   validate(GlobalKey<FormState> formkey, String name, String emailId,
       String mobileNo, String type, BuildContext context) async {
     if (formkey.currentState!.validate()) {
-      var customLoader = Loader();
-      showDialog(context: context, builder: (context) => customLoader);
-      final result = await _registrationRepository.getRegistrationDetails(
-          name, emailId, mobileNo, type);
-      if (result.message == ApiErrorCodes.success ||
-          result.message == ApiErrorCodes.exist) {
-        await LocalStoreHelper().writeTheData("isLoggedIn", true);
-        await LocalStoreHelper().writeTheData("Mobile Number", mobileNo);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(result.message.toString()),
-          ),
-        );
-
-        Navigator.pushNamed(context, Approutes.dashboard);
+      if (await InternetCheck()) {
+        var customLoader = Loader();
+        showDialog(context: context, builder: (context) => customLoader);
+        final result = await _registrationRepository.getRegistrationDetails(
+            name, emailId, mobileNo, type);
+        if (result.message == ApiErrorCodes.success ||
+            result.message == ApiErrorCodes.exist) {
+          await LocalStoreHelper().writeTheData("isLoggedIn", true);
+          await LocalStoreHelper().writeTheData("Mobile Number", mobileNo);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(result.message.toString()),
+            ),
+          );
+          Navigator.pushNamed(context, Approutes.dashboard);
+        } else {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialogReUsable(
+                nobutton: const Text(""),
+                message: "Server not responding",
+                onpressed: () {
+                  Navigator.pop(context);
+                },
+                buttontext: StringConstants.ok,
+              );
+            },
+          );
+        }
       } else {
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialogReUsable(
-              nobutton: const Text(""),
-              message: "Server not responding",
-              onpressed: () {
-                Navigator.pop(context);
-              },
-              buttontext: StringConstants.ok,
-            );
-          },
-        );
+        AlertsNetwork.showAlertDialog(context, StringConstants.internetcheck,
+            onpressed: () {
+          Navigator.pop(context);
+        }, buttontext: StringConstants.ok, align: TextAlign.center);
       }
     }
   }
