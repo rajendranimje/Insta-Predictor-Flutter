@@ -34,8 +34,6 @@ class TextFieldReusable extends StatelessWidget {
           return isEmpty;
         } else if (isValid != null && value.length < 10) {
           return isValid;
-        }else{
-          return "";
         }
       },
       decoration: InputDecoration(

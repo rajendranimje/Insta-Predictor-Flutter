@@ -1,5 +1,5 @@
 class StringConstants {
-  static const String InstaPredictor = "Instant Predictor";
+  static const String InstaPredictor = "Insta Predictor";
 
   static const String name = "Name";
   static const String mobileNumber = "Mobile Number";
