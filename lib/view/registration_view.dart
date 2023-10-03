@@ -143,7 +143,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                                   _nameController.text.toString(),
                                   _emailIdController.text.toString(),
                                   _mobileNumberController.text.toString(),
-                                  "Paid",
+                                  "Free",
                                   context);
                             },
                           ),
